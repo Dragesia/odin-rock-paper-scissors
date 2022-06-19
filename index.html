@@ -16,25 +16,34 @@
         }
 
         function playRound(playerSelection, computerSelection) {
+            let userScore = 0;
+            let aiScore = 0;
+
             if(playerSelection == computerSelection) {
                 return "Tie!";
             }
             else if (playerSelection == "rock") {
                 if (computerSelection == "scissors") {
+                    userScore++;
                     return "You win! Rock beats scissors.";
                 }
+                aiScore++;
                 return "You lose! Paper beats rock.";
             }
             else if (playerSelection == "scissors") {
                 if (computerSelection == "rock") {
+                    aiScore++;
                     return "You lose! Rock beats scissors.";
                 }
-                return "You win! Scissors beats paper.";
+                userScore++;
+                return "You win! Scissors beats paper.";  
             }
             else if (playerSelection == "paper") {
                 if (computerSelection == "rock") {
+                    userScore++;
                     return "You win! Paper beats rock.";
                 }
+                aiScore++;
                 return "You lose! Scissors beats paper.";
             }
         }
@@ -45,6 +54,8 @@
                 console.log("Round ${i+1}: ", playRound(play, computerPlay()));
             }
         }
+
+        game();
     </script>
 </body>
 </html>
