@@ -15,12 +15,35 @@
             return rules[rnd];
         }
 
-        console.log(computerPlay());
-
-        let play = prompt("Rock, paper or scissors?");
-
         function playRound(playerSelection, computerSelection) {
-            
+            if(play == computerPlay()) {
+                return "Tie!";
+            }
+            else if (play == "rock") {
+                if (computerPlay() == "scissors") {
+                    return "You win! Rock beats scissors.";
+                }
+                return "You lose! Paper beats rock.";
+            }
+            else if (play == "scissors") {
+                if (computerPlay() == "rock") {
+                    return "You lose! Rock beats scissors.";
+                }
+                return "You win! Scissors beats paper.";
+            }
+            else if (play == "paper") {
+                if (computerPlay() == "rock") {
+                    return "You win! Paper beats rock.";
+                }
+                return "You lose! Scissors beats paper.";
+            }
+        }
+
+        function game() {
+            for(let i=0; i<5; i++) {
+                let play = prompt("Rock, paper or scissors?").toLowerCase();
+                console.log("Round ${i+1}: ", playRound(play, computerPlay()));
+            }
         }
     </script>
 </body>
