@@ -8,9 +8,14 @@
 </head>
 <body>
     <script>
-        function computerPlay() {
+        const rules = ["rock", "scissors", "paper"];
 
+        function computerPlay() {
+            const rnd = Math.floor(Math.random() * rules.length);
+            return rules[rnd];
         }
+
+        console.log(computerPlay());
 
         let play = prompt("Rock, paper or scissors?");
 
