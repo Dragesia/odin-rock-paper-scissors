@@ -16,42 +16,52 @@
         }
 
         function playRound(playerSelection, computerSelection) {
-            let userScore = 0;
-            let aiScore = 0;
 
             if(playerSelection == computerSelection) {
                 return "Tie!";
             }
             else if (playerSelection == "rock") {
                 if (computerSelection == "scissors") {
-                    userScore++;
                     return "You win! Rock beats scissors.";
                 }
-                aiScore++;
                 return "You lose! Paper beats rock.";
             }
             else if (playerSelection == "scissors") {
                 if (computerSelection == "rock") {
-                    aiScore++;
                     return "You lose! Rock beats scissors.";
                 }
-                userScore++;
                 return "You win! Scissors beats paper.";  
             }
             else if (playerSelection == "paper") {
                 if (computerSelection == "rock") {
-                    userScore++;
                     return "You win! Paper beats rock.";
                 }
-                aiScore++;
                 return "You lose! Scissors beats paper.";
             }
         }
 
         function game() {
+            let userScore = 0;
+            let pcScore = 0;
             for(let i=0; i<5; i++) {
-                let play = prompt("Rock, paper or scissors?").toLowerCase();
-                console.log("Round ${i+1}: ", playRound(play, computerPlay()));
+                let userPlay = prompt("Rock, paper or scissors?").toLowerCase();
+                let result = playRound(userPlay, computerPlay());
+                console.log(`Round ${i+1}: `, result);
+                if (result.slice(4,7) == "win") {
+                    userScore++;
+                }
+                else {
+                    pcScore++;
+                }
+            }
+            if(pcScore == userScore) {
+                console.log(`Tie! You: ${userScore} - PC: ${pcScore}`);
+            }
+            else if (pcScore > userScore) {
+                console.log(`You win! You: ${userScore} - PC: ${pcScore}`);
+            }
+            else {
+                console.log(`You lose! You: ${userScore} - PC: ${pcScore}`);
             }
         }
 
