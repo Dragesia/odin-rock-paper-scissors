@@ -1,0 +1,88 @@
+:root {
+    --darkgray: #121212;
+    --gray: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+body {
+    background-color: var(--darkgray);
+    font-size: 10px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 2rem;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreboard {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1.5rem;
+}
+
+#player, #computer {
+    background-color: var(--gray);
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+}
+
+#player {
+    border-right: .5px solid white;
+}
+
+#computer {
+    border-left: .5px solid white;
+}
+
+#playing {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+button {
+    background-color: var(--darkgray);
+    border: .5px solid var(--gray);
+    font-size: 5rem;
+    padding: 1rem;
+    transition: all .07s;
+}
+
+#reset {
+    margin-top: 2rem;
+    font-size: 2rem;
+    border-radius: 15px;
+    transition: all .07s;
+}
+
+#reset:hover {
+    background-color: red;
+}
+
+.won {
+    background-color: green;
+}
+
+.lost {
+    background-color: darkred;
+}
+
+.tie {
+    background-color: darkorange;
+}
